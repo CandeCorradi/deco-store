@@ -1,90 +1,59 @@
+<?php
+// login/index.php - Pantalla de Inicio de Sesión
+session_start();
+
+// Si el usuario ya estaba logueado, lo mandamos directo al panel de la raíz
+if (isset($_SESSION['id_usuarios'])) {
+    header("Location: ../index.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
-<head>
+<head>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DecoStore - Ingreso</title>
+    <title>DecoStore - Ingreso al Sistema</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
     <style>
-        :root {
-            --bg-warm-beige: #FDFCF6;
-            --text-dark-brown: #3E2723;
-            --accent-green: #2E7D32;
-            --accent-green-hover: #1B5E20;
-            --border-color: #EAE1D0;
-        }
-
-        body {
-            background-color: var(--bg-warm-beige);
-            color: var(--text-dark-brown);
-            font-family: 'Segoe UI', sans-serif;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .login-card {
-            background: #FFFFFF;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(62, 39, 35, 0.04);
-            padding: 2.5rem;
-            max-width: 400px;
-            width: 100%;
-        }
-
-        .btn-deco {
-            background-color: var(--accent-green);
-            color: white;
-            border: none;
-            transition: background 0.3s ease;
-        }
-
-        .btn-deco:hover {
-            background-color: var(--accent-green-hover);
-            color: white;
-        }
-
-        .form-control:focus {
-            border-color: var(--accent-green);
-            box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.25);
-        }
+        body { background-color: #FDFCF6; font-family: 'Segoe UI', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .login-card { background: #FFFFFF; border: 1px solid #EAE1D0; border-radius: 12px; box-shadow: 0 4px 12px rgba(62, 39, 35, 0.05); width: 100%; max-width: 400px; padding: 2.5rem; }
+        .btn-success { background-color: #2E7D32; border: none; }
+        .btn-success:hover { background-color: #1B5E20; }
     </style>
 </head>
 <body>
 
 <div class="login-card">
     <div class="text-center mb-4">
-        <h2 class="text-uppercase fw-bold" style="color: var(--accent-green); letter-spacing: 1px;">
-            <i class="fas fa-leaf me-2"></i>Deco<span style="font-weight: 300; color: #5D4037;">Store</span>
-        </h2>
-        <p class="text-muted small">Gestión de Interiores & Mobiliario</p>
+        <h2 class="fw-bold" style="color: #3E2723;"><i class="fas fa-leaf text-success me-2"></i>DECOSTORE</h2>
+        <p class="text-muted small">Gestión de Estudio & Showroom</p>
     </div>
-
-    <?php if (isset($_GET['error'])): ?>
-        <div class="alert alert-danger py-2 text-center small" role="alert">
-            Usuario o contraseña incorrectos.
-        </div>
-    <?php endif; ?>
 
     <form action="procesar_login.php" method="POST">
         <div class="mb-3">
-            <label for="usuario" class="form-label small fw-semibold">Usuario</label>
-            <input type="text" class="form-control" id="usuario" name="usuario" required autocomplete="off">
+            <label for="usuario" class="form-label text-muted small fw-bold">Usuario o Email</label>
+            <input type="text" name="usuario" id="usuario" class="form-control" required placeholder="admin">
         </div>
-        
         <div class="mb-4">
-            <label for="contrasenia" class="form-label small fw-semibold">Contraseña</label>
-            <input type="password" class="form-control" id="contrasenia" name="contrasenia" required>
+    <label for="password" class="form-label text-muted small fw-bold">Contraseña</label>
+    <input type="password" name="contrasenia" id="password" class="form-control" required placeholder="••••••••">
         </div>
-
-        <button type="submit" class="btn btn-deco w-100 py-2 fw-semibold">Ingresar al Sistema</button>
+        <button type="submit" class="btn btn-success w-100 py-2 fw-semibold">
+            <i class="fas fa-sign-in-alt me-2"></i> Ingresar al Panel
+        </button>
     </form>
+    </button>
+    </form>
+
+    <?php if (isset($_GET['error'])): ?>
+        <div class="alert alert-danger text-center small mt-3 py-2">
+            Usuario o contraseña incorrectos.
+        </div>
+    <?php endif; ?>
+</div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
 </body>
 </html>

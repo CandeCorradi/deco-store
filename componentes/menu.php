@@ -14,7 +14,7 @@ $en_subcarpeta = (
 );
 
 // Definimos las rutas dinámicas según dónde estemos parados
-$ruta_inicio = $en_subcarpeta ? '../inicio.php' : 'inicio.php';
+$ruta_inicio = $en_subcarpeta ? '../index.php' : 'index.php';
 $ruta_catalogo = $en_subcarpeta ? '../articulos/listar.php' : 'articulos/listar.php';
 $ruta_clientes = $en_subcarpeta ? '../clientes/listar.php' : 'clientes/listar.php';
 $ruta_caja = $en_subcarpeta ? '../caja/listar.php' : 'caja/listar.php';
