@@ -10,13 +10,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $telefono = mysqli_real_escape_string($conexion, trim($_POST['telefono']));
     $email = mysqli_real_escape_string($conexion, trim($_POST['email']));
     $id_provincia = intval($_POST['id_provincias']);
+    $id_tiporesp = intval($_POST['id_tiporesp'] ?? 3);
+    $letra_cbte = mysqli_real_escape_string($conexion, trim($_POST['letra_comprobante'] ?? 'B'));
 
     // Ejecutamos el UPDATE (Asegurate de que los nombres de las columnas coincidan con tu tabla 'clientes')
     $query_update = "UPDATE clientes SET 
                     nombre = '$nombre', 
                     telefono = '$telefono', 
                     email = '$email', 
-                    id_provincias = $id_provincia 
+                    id_provincias = $id_provincia,
+                    id_tiporesp = $id_tiporesp,
+                    letra_comprobante = '$letra_cbte' 
+
                     WHERE id_clientes = $id";
 
     if (mysqli_query($conexion, $query_update)) {

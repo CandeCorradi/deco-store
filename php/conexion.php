@@ -1,23 +1,23 @@
 <?php
+date_default_timezone_set('America/Argentina/Buenos_Aires');
 // php/conexion.php
 
 //conexión local
-/*
-$host = "localhost";
-$usuario = "root";
-$password = "";
-$base_datos = "d26com_db_cande";
+
+//$host = "localhost";
+//$usuario = "root";
+//$password = "";
+//$base_datos = "d26com_db_cande";
 
 // Creamos la conexión
-$conexion = mysqli_connect($host, $usuario, $password, $base_datos);
-*/
+//$conexion = mysqli_connect($host, $usuario, $password, $base_datos);
+
 
 //conexión con el servidor
 $db_host = "192.185.194.188";
 $db_user = "d26com_usr_general";
 $db_pass = "Isp203040";
 $db_name = "d26com_db_cande";
-
 
 $conexion = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 
@@ -28,4 +28,7 @@ if (!$conexion) {
 
 // Configurar caracteres para que no rompa los acentos ni las Ñ
 mysqli_set_charset($conexion, "utf8");
+
+// Forzar la zona horaria de Argentina en la base de datos para que NOW() guarde la hora correcta
+mysqli_query($conexion, "SET time_zone = '-03:00'");
 ?>

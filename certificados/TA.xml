@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<loginTicketResponse version="1.0">
+    <header>
+        <source>CN=wsaahomo, O=AFIP, C=AR, SERIALNUMBER=CUIT 33693450239</source>
+        <destination>SERIALNUMBER=CUIT 27412878278, CN=decostore</destination>
+        <uniqueId>953993149</uniqueId>
+        <generationTime>2026-10-27T12:05:36.752-03:00</generationTime>
+        <expirationTime>2026-10-28T00:05:36.752-03:00</expirationTime>
+    </header>
+    <credentials>
+        <token>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pgo8c3NvIHZlcnNpb249IjIuMCI+CiAgICA8aWQgc3JjPSJDTj13c2FhaG9tbywgTz1BRklQLCBDPUFSLCBTRVJJQUxOVU1CRVI9Q1VJVCAzMzY5MzQ1MDIzOSIgZHN0PSJDTj13c2ZlLCBPPUFGSVAsIEM9QVIiIHVuaXF1ZV9pZD0iMjM5MTU3NjQ0IiBnZW5fdGltZT0iMTc5MzExMzQ3NiIgZXhwX3RpbWU9IjE3OTMxNTY3MzYiLz4KICAgIDxvcGVyYXRpb24gdHlwZT0ibG9naW4iIHZhbHVlPSJncmFudGVkIj4KICAgICAgICA8bG9naW4gZW50aXR5PSIzMzY5MzQ1MDIzOSIgc2VydmljZT0id3NmZSIgdWlkPSJTRVJJQUxOVU1CRVI9Q1VJVCAyNzQxMjg3ODI3OCwgQ049ZGVjb3N0b3JlIiBhdXRobWV0aG9kPSJjbXMiIHJlZ21ldGhvZD0iMjIiPgogICAgICAgICAgICA8cmVsYXRpb25zPgogICAgICAgICAgICAgICAgPHJlbGF0aW9uIGtleT0iMjc0MTI4NzgyNzgiIHJlbHR5cGU9IjQiLz4KICAgICAgICAgICAgPC9yZWxhdGlvbnM+CiAgICAgICAgPC9sb2dpbj4KICAgIDwvb3BlcmF0aW9uPgo8L3Nzbz4K</token>
+        <sign>NAOqnp0w16dwoAOjoQo1QOcIFBaoHrrqOobeSo1l2D42/BbhN8j91N8Xr487sVk/9Rie3IenoR0lF5LARjrIdyo7IMRz9rep4WkGVp0pi/r77apg4nBSG6eSjhcknEVncQxUmJM/LP4VHYuojQkR4AT3ZjZGoxf3x/itADR9nSc=</sign>
+    </credentials>
+</loginTicketResponse>

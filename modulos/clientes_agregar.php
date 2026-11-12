@@ -43,6 +43,21 @@ $res_provincias = mysqli_query($conexion, $query_provincias);
                 <label class="form-label fw-semibold small">DNI / Documento</label>
                 <input type="text" name="dni" class="form-control" placeholder="Sin puntos ni espacios" required>
             </div>
+            <div class="row mb-3">
+        <div class="col-md-6">
+            <label class="form-label fw-bold">Condición de IVA / Responsable</label>
+            <select name="id_tiporesp" id="id_tiporesp" class="form-select" onchange="actualizarLetraSugerida()">
+                <?php
+                $resResp = mysqli_query($conexion, "SELECT id_tiporesp, tiporesp FROM tipos_responsable WHERE esta_eliminado = 0");
+                while ($tr = mysqli_fetch_assoc($resResp)) {
+                    $selected = ($tr['id_tiporesp'] == 3) ? 'selected' : ''; // 3 = Consumidor Final por defecto
+                    echo "<option value='{$tr['id_tiporesp']}' $selected>{$tr['tiporesp']}</option>";
+                }
+                ?>
+            </select>
+        </div>
+        
+    </div>
 
             <div class="row g-3 mb-3">
                 <div class="col-6">

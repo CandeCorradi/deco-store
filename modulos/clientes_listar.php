@@ -5,6 +5,7 @@
 $query = "SELECT c.*, p.nombre AS nombre_provincia 
           FROM clientes c 
           INNER JOIN provincias p ON c.id_provincias = p.id_provincias 
+          WHERE c.esta_eliminado = 0
           ORDER BY c.id_clientes DESC";
 
 $resultado = mysqli_query($conexion, $query);
@@ -13,7 +14,7 @@ $resultado = mysqli_query($conexion, $query);
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
         <h3 class="fw-bold mb-1"><i class="fas fa-users me-2 text-success"></i>Control de Clientes</h3>
-        <p class="text-muted small mb-0">Gestión de clientes y sincronización con provincias.</p>
+        <p class="text-muted small mb-0">Gestión de clientes, sincronización con provincias y cuentas corrientes.</p>
     </div>
     <a href="index.php?page=clientes_agregar" class="btn btn-success fw-semibold">
         <i class="fas fa-user-plus me-1"></i> Nuevo Cliente
@@ -59,9 +60,21 @@ $resultado = mysqli_query($conexion, $query);
                             
                             <td class="text-center">
                                 <div class="btn-group btn-group-sm">
-                                    <a href="index.php?page=clientes_editar&id=<?php echo $fila['id_clientes']; ?>" class="btn btn-outline-secondary" title="Editar">
+                                    <!-- Botón Estado de Cuenta Corriente / Saldo -->
+                                    <a href="index.php?page=clientes_cuenta_corriente&id=<?php echo $fila['id_clientes']; ?>" 
+                                       class="btn btn-outline-warning" 
+                                       title="Ver Cuenta Corriente / Saldo">
+                                        <i class="fas fa-file-invoice-dollar"></i>
+                                    </a>
+
+                                    <!-- Botón Editar -->
+                                    <a href="index.php?page=clientes_editar&id=<?php echo $fila['id_clientes']; ?>" 
+                                       class="btn btn-outline-secondary" 
+                                       title="Editar">
                                         <i class="fas fa-edit"></i>
                                     </a>
+
+                                    <!-- Botón Eliminar -->
                                     <a href="#" 
                                        class="btn btn-outline-danger btn-borrar-estetico" 
                                        data-url="index.php?page=clientes_borrar&id=<?php echo $fila['id_clientes']; ?>" 
