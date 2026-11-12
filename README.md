@@ -30,7 +30,7 @@ Seguí estos pasos para ejecutar el proyecto en tu entorno local:
 
 Clonar el repositorio:
 
-git clone https://github.com/tu-usuario/deco-store.git
+git clone https://github.com/CandeCorradi/deco-store
 
 
 Mover al servidor local:
